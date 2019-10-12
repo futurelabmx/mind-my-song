@@ -10,7 +10,8 @@ from db import db_insert_document
 
 
 app = Flask(__name__)
-users = db_connect(MONGO_URI, 'mind-my-song', 'users')
+users = None
+# users = db_connect(MONGO_URI, 'mind-my-song', 'users')
 
 
 @app.route('/', methods=['GET', 'POST'])
