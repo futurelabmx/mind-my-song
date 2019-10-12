@@ -9,12 +9,12 @@ from db import db_fetch_one
 from db import db_insert_document
 
 
-app = Flask(__name__)
+application = Flask(__name__)
 users = None
 # users = db_connect(MONGO_URI, 'mind-my-song', 'users')
 
 
-@app.route('/', methods=['GET', 'POST'])
+@application.route('/', methods=['GET', 'POST'])
 def test():
     return """<h1>Hello world!</h1>"""
 
@@ -48,10 +48,10 @@ def index():
     return render_template('index.html', flag=None)
 
 
-@app.errorhandler(404)
+@application.errorhandler(404)
 def not_found(error=None):
     return render_template('404.html')
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    application.run()
